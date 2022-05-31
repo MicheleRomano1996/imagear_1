@@ -70,6 +70,21 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
+            <a-assets>
+                <video
+                    id="vid"
+                    src="assets/asset.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    playsinline
+                ></video>
+            </a-assets>
+
+
     <!-- we use cors proxy to avoid cross-origin problems -->
     <a-nft
       type="nft"
@@ -77,13 +92,16 @@
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
-      smoothThreshold="5"
-    >
-      <a-entity
-        gltf-model="assets/asset.glb"
-        scale="5 5 5"
-        position="50 150 0"
-      >
+      smoothThreshold="5">
+      
+                <a-video
+                    src="#vid"
+                    scale="1.5 1.5 1.5"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
       </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
